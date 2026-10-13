@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Descubra quanto sobra em cada venda. Calcule lucro, margem e preço de venda ideal para seu pequeno negócio.">
+  <meta name="theme-color" content="#166534">
+  <title>Lucro por Venda — Saiba quanto realmente sobra</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="Lucro por Venda, início">
+      <span class="brand-mark">↗</span><span>Lucro <b>por Venda</b></span>
+    </a>
+    <nav aria-label="Navegação principal">
+      <a href="#calculadora">Calculadora</a>
+      <a href="#preco-ideal">Preço ideal</a>
+      <a href="#recursos">Recursos</a>
+      <a class="nav-cta" href="#calculadora">Calcular agora</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </header>
+
+  <main>
+    <section class="hero section" id="inicio">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="dot"></span> Feito para pequenos negócios</span>
+        <h1>Você vende.<br>Mas sabe <em>quanto sobra?</em></h1>
+        <p class="hero-lead">Descubra o lucro estimado de cada venda, entenda sua margem e pare de definir preços no escuro.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#calculadora">Calcular meu lucro <span>→</span></a>
+          <a class="text-link" href="#como-funciona">Como funciona</a>
+        </div>
+        <div class="trust-row"><span>✓ Grátis para começar</span><span>✓ Sem cadastro</span><span>✓ Funciona no celular</span></div>
+      </div>
+      <div class="hero-visual" aria-label="Exemplo ilustrativo de resultado financeiro">
+        <div class="floating-tag tag-top">Visão clara do seu negócio</div>
+        <div class="preview-card">
+          <div class="preview-head"><div><span class="muted-label">LUCRO ESTIMADO</span><h2>R$ 34,00</h2></div><span class="positive-pill">+34% margem</span></div>
+          <div class="mini-chart" aria-hidden="true"><span style="height:32%"></span><span style="height:46%"></span><span style="height:38%"></span><span style="height:62%"></span><span style="height:54%"></span><span style="height:78%"></span><span style="height:100%"></span><span style="height:83%"></span><span style="height:91%"></span></div>
+          <div class="preview-line"><span>Preço de venda</span><b>R$ 100,00</b></div>
+          <div class="preview-line"><span>Custos e despesas</span><b>R$ 66,00</b></div>
+          <div class="preview-line total"><span>Sobra estimada</span><b>R$ 34,00</b></div>
+        </div>
+        <div class="floating-tag tag-bottom"><span class="check-icon">✓</span> Mais clareza para decidir</div>
+      </div>
+    </section>
+
+    <section class="benefit-strip" id="como-funciona">
+      <div><span class="benefit-icon">01</span><p><b>Informe seus custos</b><small>Produto, taxas, frete e despesas</small></p></div>
+      <div><span class="benefit-icon">02</span><p><b>Veja o resultado</b><small>Lucro estimado e margem percentual</small></p></div>
+      <div><span class="benefit-icon">03</span><p><b>Decida melhor</b><small>Ajuste o preço com mais segurança</small></p></div>
+    </section>
+
+    <section class="section tool-section" id="calculadora">
+      <div class="section-heading">
+        <span class="eyebrow">FERRAMENTA GRATUITA</span>
+        <h2>Calcule seu lucro por venda</h2>
+        <p>Preencha os campos abaixo. Os resultados são atualizados automaticamente.</p>
+      </div>
+      <div class="calculator-layout">
+        <form class="panel input-panel" id="profit-form">
+          <div class="panel-title"><span class="title-icon">▦</span><div><h3>Dados da sua venda</h3><p>Informe os valores em reais (R$)</p></div></div>
+          <div class="form-grid">
+            <label class="field field-wide"><span>Preço de venda por unidade (R$)</span><div class="input-wrap"><span>R$</span><input id="sale-price" type="number" min="0" step="0.01" value="100" required></div></label>
+            <label class="field"><span>Custo do produto (R$)</span><div class="input-wrap"><span>R$</span><input id="product-cost" type="number" min="0" step="0.01" value="40"></div></label>
+            <label class="field"><span>Taxas de venda (R$)</span><div class="input-wrap"><span>R$</span><input id="fees" type="number" min="0" step="0.01" value="8"></div></label>
+            <label class="field"><span>Frete pago por você (R$)</span><div class="input-wrap"><span>R$</span><input id="shipping" type="number" min="0" step="0.01" value="5"></div></label>
+            <label class="field"><span>Outras despesas por venda (R$)</span><div class="input-wrap"><span>R$</span><input id="other-costs" type="number" min="0" step="0.01" value="7"></div></label>
+            <label class="field field-wide"><span>Impostos estimados por venda (R$)</span><div class="input-wrap"><span>R$</span><input id="taxes" type="number" min="0" step="0.01" value="6"></div><small>Use uma estimativa adequada à sua situação tributária.</small></label>
+            <label class="field field-wide"><span>Quantidade de unidades vendidas</span><input id="quantity" type="number" min="1" step="1" value="1" required></label>
+          </div>
+          <button type="button" class="button button-secondary button-full" id="reset-profit">Restaurar exemplo</button>
+        </form>
+
+        <aside class="panel results-panel" aria-live="polite">
+          <div class="result-top"><span class="muted-label">SEU LUCRO ESTIMADO POR UNIDADE</span><div class="result-value" id="unit-profit">R$ 34,00</div><span id="profit-status" class="status-pill status-positive">Venda com lucro</span></div>
+          <div class="margin-block"><div><span>Margem sobre a venda</span><b id="unit-margin">34,0%</b></div><div class="progress-track"><span id="margin-bar" style="width:34%"></span></div><small>Lucro estimado ÷ preço de venda</small></div>
+          <div class="result-list">
+            <div><span>Preço de venda</span><b id="result-price">R$ 100,00</b></div>
+            <div><span>Custos por unidade</span><b id="unit-costs">R$ 66,00</b></div>
+            <div><span>Faturamento total</span><b id="total-revenue">R$ 100,00</b></div>
+            <div><span>Custos totais</span><b id="total-costs">R$ 66,00</b></div>
+            <div class="highlight-row"><span>Lucro estimado total</span><b id="total-profit">R$ 34,00</b></div>
+          </div>
+          <div class="result-note"><span>ⓘ</span><p>Estimativa simplificada. Despesas fixas, perdas, devoluções e tributos não informados podem reduzir o resultado.</p></div>
+          <button type="button" class="button button-primary button-full" id="download-report">Baixar resumo (.csv)</button>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section price-section" id="preco-ideal">
+      <div class="section-heading">
+        <span class="eyebrow">PRECIFIQUE COM INTENÇÃO</span>
+        <h2>Qual preço você deveria cobrar?</h2>
+        <p>Calcule um preço de referência para buscar a margem desejada, considerando os custos informados.</p>
+      </div>
+      <div class="price-tool panel">
+        <div class="price-fields">
+          <label class="field"><span>Custos e despesas por unidade (R$)</span><div class="input-wrap"><span>R$</span><input id="target-costs" type="number" min="0" step="0.01" value="66"></div><small>Atualizado a partir da calculadora; você pode alterar.</small></label>
+          <label class="field"><span>Margem de lucro desejada (%)</span><div class="input-wrap percent-wrap"><input id="target-margin" type="number" min="0" max="99.9" step="0.1" value="30"><span>%</span></div><small>Informe de 0% a 99,9%.</small></label>
+        </div>
+        <div class="target-result"><span class="muted-label">PREÇO DE VENDA DE REFERÊNCIA</span><b id="target-price">R$ 94,29</b><p id="target-explanation">Para buscar uma margem de 30%, considerando os custos informados.</p><button class="button button-primary" id="use-target-price" type="button">Usar este preço na calculadora ↗</button></div>
+      </div>
+      <p class="fine-print">Fórmula de referência: preço = custos ÷ (1 − margem desejada). O resultado não substitui análise de mercado, regras tributárias ou orientação contábil.</p>
+    </section>
+
+    <section class="section features-section" id="recursos">
+      <div class="section-heading">
+        <span class="eyebrow">MENOS ACHISMO, MAIS CLAREZA</span>
+        <h2>Uma ferramenta simples para decisões melhores</h2>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card"><span class="feature-icon green">↗</span><h3>Veja o que realmente sobra</h3><p>Separe o dinheiro que entra dos custos que saem antes de chamar o restante de lucro.</p></article>
+        <article class="feature-card"><span class="feature-icon yellow">◎</span><h3>Entenda sua margem</h3><p>Compare o lucro com o preço de venda e avalie se a margem atende ao seu objetivo.</p></article>
+        <article class="feature-card"><span class="feature-icon blue">▤</span><h3>Guarde seu resumo</h3><p>Exporte os números para CSV e abra em programas de planilhas para acompanhar seu negócio.</p></article>
+      </div>
+    </section>
+
+    <section class="sales-section" id="kit">
+      <div class="sales-inner">
+        <div><span class="eyebrow eyebrow-light">EM BREVE · PRODUTO DIGITAL</span><h2>Organize suas finanças além de uma venda.</h2><p>Uma planilha prática para registrar produtos, custos, vendas e despesas em um só lugar.</p><ul><li>Controle de vendas e custos</li><li>Planilha para precificação</li><li>Resumo mensal do negócio</li></ul></div>
+        <div class="offer-card"><span class="offer-label">KIT FINANCEIRO</span><div class="offer-price">R$ 29,90</div><p>Preço sugerido para teste</p><button class="button button-dark button-full" id="interest-button" type="button">Quero saber quando lançar</button><small>Este botão abre seu aplicativo de e-mail. Configure o endereço no arquivo script.js antes de publicar.</small></div>
+      </div>
+    </section>
+
+    <section class="section faq-section">
+      <div class="section-heading"><span class="eyebrow">DÚVIDAS FREQUENTES</span><h2>O que você precisa saber</h2></div>
+      <details><summary>O lucro calculado é o lucro líquido do meu negócio?</summary><p>Não necessariamente. O resultado é uma estimativa por unidade com base nos valores informados. Para conhecer o resultado completo, inclua também despesas fixas rateadas, perdas, devoluções e todos os tributos e custos aplicáveis.</p></details>
+      <details><summary>Como calculo a margem de lucro?</summary><p>A margem estimada é o lucro por unidade dividido pelo preço de venda, multiplicado por 100. Ela é diferente do acréscimo aplicado sobre o custo (markup).</p></details>
+      <details><summary>O site guarda meus dados?</summary><p>Esta versão calcula tudo no navegador e não envia os valores da calculadora para um servidor. O CSV é gerado no seu dispositivo. Isso pode mudar se futuras versões incluírem contas, sincronização ou serviços externos.</p></details>
+      <details><summary>O preço ideal garante que vou vender?</summary><p>Não. O preço calculado é uma referência matemática. Considere concorrência, percepção de valor, demanda, taxas reais e regras fiscais antes de definir o preço final.</p></details>
+    </section>
+
+    <section class="final-cta"><div><span class="eyebrow eyebrow-light">COMECE AGORA</span><h2>Seu próximo passo é entender seus números.</h2><p>Faça uma simulação gratuita e tome decisões com mais clareza.</p></div><a class="button button-light" href="#calculadora">Calcular meu lucro →</a></section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand brand-footer" href="#inicio"><span class="brand-mark">↗</span><span>Lucro <b>por Venda</b></span></a>
+    <p>Uma ferramenta de apoio para pequenos negócios.</p>
+    <p class="footer-disclaimer">Os cálculos são estimativas e não constituem orientação contábil, fiscal, jurídica ou financeira personalizada.</p>
+    <span class="copyright">© <span id="year"></span> Lucro por Venda</span>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
